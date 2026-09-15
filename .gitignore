@@ -1,0 +1,21 @@
+# Secrets / môi trường
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+bin/
+dist/
+server/server
+tmp/
+server/tmp/
+
+# Go
+*.test
+coverage.out
+
+# OS / editor
+.DS_Store
+
+# opencode
+.opencode/
