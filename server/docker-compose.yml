@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: salon-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '${DB_PORT}:5432' # Mở cổng 5432 để Go app / TablePlus kết nối vào
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Lưu dữ liệu bền vững
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8081:8080'
+
+volumes:
+  postgres_data:
