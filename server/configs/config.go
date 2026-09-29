@@ -16,6 +16,8 @@ type Config struct{
 type AppConfig struct{
 	Env string `mapstructure:"APP_ENV"`
 	Port string `mapstructure:"APP_PORT"`
+	BasePath string `mapstructure:"API_BASE_PATH"`
+	ServerURL string `mapstructure:"SERVER_URL"`
 }
 
 type DatabaseConfig struct{
@@ -50,6 +52,8 @@ func LoadConfig()(*Config, error){
 
 	viper.SetDefault("APP_PORT", "8080")
 	viper.SetDefault("APP_ENV", "development")
+	viper.SetDefault("API_BASE_PATH", "/api/v1")
+	viper.SetDefault("SERVER_URL", "http://localhost:8080")
 	if err := viper.ReadInConfig(); err != nil{
 		log.Println("Không tìm thấy file .env, đang đọc trực tiếp từ Environment Variables của hệ thống")
 	}

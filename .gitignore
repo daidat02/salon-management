@@ -17,5 +17,12 @@ coverage.out
 # OS / editor
 .DS_Store
 
-# opencode
+# Opencode
 .opencode/
+
+# Khong track len git (tai lieu noi bo / preview / tooling local)
+*.xlsx
+TAI_LIEU_DU_AN_SALON.txt
+preview/
+.scratch/
+.playwright-mcp/

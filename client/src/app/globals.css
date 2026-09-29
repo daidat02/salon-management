@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* ===== Font mặc định = APP (admin_preview: Inter cho tất cả) ===== */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Font landing (preview/website: Plus Jakarta Sans cho headline/display) */
+  --font-jakarta: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* ===== APP: Thương hiệu & Primary (admin_preview) ===== */
+  --color-brand: #4f7cac;
+  --color-brand-hover: #3e638b;
+  --color-brand-light: #eff6ff;
+  --color-brand-container: #d6e4f0;
+
+  --color-primary: #4f7cac;
+  --color-primary-dark: #3e638b;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d6e4f0;
+  --color-info: #4f7cac;
+
+  /* ===== APP: Nền & Bề mặt ===== */
+  --color-surface: #ffffff;
+  --color-surface-bg: #f5f7fa;
+  --color-surface-header: #f8fafc;
+  --color-surface-container: #f8f9fa;
+  --color-surface-container-low: #f9fafb;
+  --color-background: #f5f7fa;
+  --color-outline: #e2e8f0;
+  --color-outline-variant: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  /* ===== APP: Chữ ===== */
+  --color-on-surface: #1a202c;
+  --color-body: #1e293b;
+  --color-on-surface-variant: #64748b;
+
+  /* ===== APP: Trạng thái ===== */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* ===== LANDING-only tokens (preview/website) — tiền tố lp-* để không đụng app ===== */
+  --color-lp-charcoal: #1f1e20;
+  --color-lp-muted: #6c6a70;
+  --color-lp-quartz: #a7a2a9;
+  --color-lp-alabaster: #f9f8fa;
+  --color-lp-border: #ebe8ec;
+  --color-lp-card: #fafafb;
+  --color-lp-gold: #c5a880;
+  --color-lp-bg: #faf9fb;
+  --color-lp-surface-container: #eeedef;
+  --color-lp-surface-low: #f4f3f5;
+  --color-lp-error: #ba1a1a;
+  --color-lp-error-container: #ffdad6;
+
+  /* ===== Radius — admin_preview borderRadius.custom = 12px ===== */
+  --radius-custom: 12px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-body);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background-color: #dbeafe;
+    color: var(--color-brand);
+  }
+
+  .theme-landing ::selection {
+    background-color: #1f1e20;
+    color: #ffffff;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@utility custom-scroll {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #f5f7fa;
+  --foreground: #1e293b;
+  --card: oklch(1 0 0);
+  --card-foreground: #1e293b;
+  --popover: oklch(1 0 0);
+  --popover-foreground: #1e293b;
+  --primary: #4f7cac;
+  --primary-foreground: #ffffff;
+  --secondary: #eaf0f6;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #4f7cac;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #475569;
+  --sidebar-primary: #4f7cac;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eff6ff;
+  --sidebar-accent-foreground: #4f7cac;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #4f7cac;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/*
+ * Scoped theme — đứng CUỐI file để thắng `:root` (specificity ngang nhau,
+ * source order quyết định). Cùng class ngữ nghĩa nhưng render màu khác
+ * nhau tùy vùng:
+ * - Mặc định (:root + .theme-app) = APP admin xanh #4F7CAC.
+ * - .theme-landing = palette website (charcoal + gold, preview/website).
+ * Đồng bộ cả 2 hệ token: --color-* (custom) và --primary/--background/... (shadcn).
+ */
+
+/* Scope tường minh cho dashboard */
+.theme-app {
+  --background: #f5f7fa;
+  --foreground: #1e293b;
+  --primary: #4f7cac;
+  --primary-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #4f7cac;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #475569;
+  --sidebar-primary: #4f7cac;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eff6ff;
+  --sidebar-accent-foreground: #4f7cac;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #4f7cac;
+
+  --color-brand: #4f7cac;
+  --color-primary: #4f7cac;
+  --color-background: #f5f7fa;
+}
+
+.theme-landing {
+  --font-headline: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-title: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* shadcn runtime vars */
+  --background: #faf9fb;
+  --foreground: #1a1c1d;
+  --card: #ffffff;
+  --card-foreground: #1a1c1d;
+  --popover: #ffffff;
+  --popover-foreground: #1a1c1d;
+  --primary: #1f1e20;
+  --primary-foreground: #ffffff;
+  --secondary: #eeedef;
+  --secondary-foreground: #1a1c1d;
+  --muted: #eeedef;
+  --muted-foreground: #48464a;
+  --accent: #f9f8fa;
+  --accent-foreground: #1f1e20;
+  --border: #ebe8ec;
+  --input: #ebe8ec;
+  --ring: #1f1e20;
+
+  /* custom tokens */
+  --color-brand: #1f1e20;
+  --color-brand-hover: #000000;
+  --color-brand-light: #f9f8fa;
+  --color-brand-container: #1f1e20;
+
+  --color-primary: #050506;
+  --color-primary-dark: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1f1e20;
+  --color-info: #050506;
+
+  --color-surface: #faf9fb;
+  --color-surface-bg: #faf9fb;
+  --color-surface-header: #ffffff;
+  --color-surface-container: #eeedef;
+  --color-surface-container-low: #f4f3f5;
+  --color-background: #faf9fb;
+  --color-outline: #79767b;
+  --color-outline-variant: #c9c5ca;
+  --color-border: #ebe8ec;
+
+  --color-on-surface: #1a1c1d;
+  --color-body: #1a1c1d;
+  --color-on-surface-variant: #48464a;
+
+  --color-error: #ba1a1a;
+}
