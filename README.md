@@ -26,8 +26,7 @@
 - **Backend:** Golang (Gin), Clean Architecture, xác thực JWT
 - **Frontend:** Next.js, TypeScript, TanStack React Query, Redux Toolkit, Axios
 - **Database:** PostgreSQL 16 (driver pgx, migration có version kèm rollback + seed data)
-- **DevOps & Hạ tầng:** Docker, Docker Compose, Cloudflare R2 / Azure Storage, tài liệu API Swagger (swaggo)
-
+- **DevOps & Hạ tầng:** Docker, Docker Compose, Cloudflare R2, tài liệu API Swagger
 ## Kiến trúc hệ thống
 
 Backend tuân thủ nghiêm ngặt **Clean Architecture** với các nguyên tắc **Domain-Driven Design (DDD)**:
